@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.background {
+  background-image: url("./assets/images/Illustration2.png"),
+    url("./assets/images/Illustration1.png"),
+    url("./assets/images/Illustration3.png"),
+    url("./assets/images/Illustration4.png"),
+    url('./assets/images/Illustration5.png');
+  background-repeat: no-repeat;
+  background-position: 110% -55%, -17% 130%, 10% 50%, 103% 105%,93% 76%;
+  background-attachment: fixed;
+  background-color: #c5d5c5;
+  /* width: 10%; */
+}

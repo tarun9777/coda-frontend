@@ -1,0 +1,70 @@
+.container {
+  background: transparent;
+}
+
+.search-img {
+  border-radius: 15px;
+  background-color: white !important;
+}
+
+.form-control {
+  width: 100ex;
+  background-color: transparent;
+  border: none;
+}
+
+.flexbox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 240px;
+  height: 100%;
+}
+
+.card-badge {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-badge .card-text {
+  text-align: right;
+  position: absolute;
+  width: 100%;
+}
+
+.card:hover {
+  transition: 0.5s ease;
+  background-color: #223 !important;
+  color: black !important;
+}
+
+.card:hover .card-badge {
+  z-index: -1;
+  transition: 0.5s ease;
+}
+
+.options {
+  opacity: 0;
+  transition: 0.5s ease;
+  z-index: -1;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+
+.card:hover .options {
+  opacity: 1;
+  z-index: 1;
+}
+
+.options .btn:hover {
+  background-color: transparent;
+}
+
+.search {
+  background-color: royalblue;
+  color: white;
+}

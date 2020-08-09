@@ -1,0 +1,165 @@
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-auto text-center my-5">
+      <div class="form-inline">
+        <img
+          class="img fluid search-img m-3"
+          src="../../assets/icons/Icon feather-search.png"
+          alt="Search"
+          width="25px"
+          height="25px"
+          
+        />
+        <input
+          class="form-control m-3"
+          type="text"
+          name="search"
+          id="search"
+          [(ngModel)] = "search"
+          (keyup) = "filterDishes()"
+          placeholder="Search for your Faviourite dishes..."
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-right">
+        <p class="text-uppercase font-italic" style="font-size: 11px; opacity: 0.5;">CATEGORY</p>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-12 text-right">
+        <p class="font-weight-bolder" style="font-size: 30px;">Pizza & noodles.</p>
+      </div>
+  </div>
+
+  <div class="row m-5" *ngIf="!dishes">
+    <div class="col-12 text-center">
+      <div
+        class="spinner-border text-secondary"
+        style="height: 6em; width: 6em;"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="flexbox">
+    <div class="d-flex flex-column m-2" *ngFor="let dish of filteredDishes">
+      <div class="card bg-dark text-light" *ngIf="dish.id % 2 == 0">
+        <div class="card-badge">
+          <p class="card-text">
+            <span class="badge badge-dark" style="opacity: 0.7; font-size: 16px; font-style: italic;">
+              {{dish.category}}
+            </span>
+          </p>
+          <img
+            src="{{ dish.image }}"
+            class=" card-img "
+            height="240px"
+            
+          />
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+              <h5 class="card-title" [ngClass]="{ search: filterFlag }">
+                {{ dish.name }}
+              </h5>
+            </div>
+            <div class="col-3">
+              <img src="../../assets/icons/Icon feather-heart-color.png" *ngIf="dish.liked" (click)="liked(dish.id)">
+              <img src="../../assets/icons/Icon feather-heart.png" *ngIf="!dish.liked" (click)="liked(dish.id)">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img src="../../assets/icons/Icon feather-clock.png">
+            </div>
+            <div class="col-10">
+              <p class="card-text" style="font-size: 18px;">{{getTime()}} mins</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text">{{dish.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="options">
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-outline-light m-1 text-light" [routerLink]="['/detailView', dish.id]">VIEW MORE</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-outline-light m-1 text-light" (click)="quickView(dish.id)">QUICK VIEW</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="card bg-light text-dark" *ngIf="dish.id % 2 != 0">
+        <div class="card-badge">
+          <p class="card-text">
+            <span class="badge badge-dark" style="opacity: 0.7; font-size: 16px; font-style: italic;">
+              {{dish.category}}
+            </span>
+          </p>
+          <img
+            src="{{ dish.image }}"
+            class=" card-img "
+            height="240px"
+            
+          />
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-9">
+              <h5 class="card-title" [ngClass]="{ search: filterFlag }">
+                {{ dish.name }}
+              </h5>
+            </div>
+            <div class="col-3">
+              <img src="../../assets/icons/Icon feather-heart-color.png" *ngIf="dish.liked" (click)="liked(dish.id)">
+              <img src="../../assets/icons/Icon feather-heart.png" *ngIf="!dish.liked" (click)="liked(dish.id)">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <img src="../../assets/icons/Icon feather-clock.png">
+            </div>
+            <div class="col-10">
+              <p class="card-text" style="font-size: 18px;">{{getTime()}} mins</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text">{{dish.description}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="options">
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-outline-light m-1 text-light" [routerLink]="['/detailView', dish.id]">VIEW MORE</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-outline-light m-1 text-light" (click)="quickView(dish.id)">QUICK VIEW</button>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+
+    </div>
+  </div>
+  
+</div>

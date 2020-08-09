@@ -1,0 +1,29 @@
+.form-control {
+  width: 100ex;
+  background-color: transparent;
+  border: none;
+}
+
+.img-inner {
+  border-radius: 30px !important;
+  opacity: 0.3;
+}
+
+.img-container {
+  background: #111;
+  border-radius: 30px !important;
+  position: relative;
+}
+
+.playbutton {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  border-radius: 100%;
+  background-color: black !important;
+  color: white !important;
+}
